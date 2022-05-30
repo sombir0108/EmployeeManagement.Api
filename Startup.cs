@@ -10,12 +10,12 @@ namespace EmployeeManagement.Api
 
         }
 
-        public IConfiguration configuration1 { get; set; }
+        public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlServer((string)Configuration.GetConnectionString("DBConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("DBConnection")));
 
             services.AddControllers();
         }
